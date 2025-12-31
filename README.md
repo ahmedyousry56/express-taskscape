@@ -1,49 +1,149 @@
-# express-taskscape (ITI Graduation Project)
-Taskscape is a backend application built with Express.js that facilitates organization management, project creation, and task tracking. 
-It provides an admin dashboard for organization owners to create and manage their teams, projects, and tasks.
+# Express Taskscape - Backend API
 
-Admin dashboard: https://taskscape-admin.vercel.app/
-frontend application: https://taskscape.vercel.app/
+> ITI Graduation Project - A comprehensive project management and task tracking backend system
 
-## Features
+Taskscape is a robust backend application built with Express.js and TypeScript that facilitates organization management, project creation, and task tracking. It provides RESTful APIs for the admin dashboard and frontend application to manage teams, projects, sprints, and tasks efficiently.
 
-- Organization creation and management
-- User registration by admin and authentication
-- Project creation and assignment of organization members to projects
-- Create sprints inside project to organize team work
-- Task tracking within projects, including start date, deadline, and status
-- Email notifications for newly created member accounts
+## 🔗 Live Applications
 
-## Installation
+- **Admin Dashboard**: https://taskscape-admin.vercel.app/
+- **Frontend Application**: https://taskscape.vercel.app/
+- **API Documentation**: https://documenter.getpostman.com/view/19178013/2s9YRB3XUs
 
-1. Clone the repository:
+## ✨ Features
 
+- **Organization Management**: Create and manage organizations with role-based access control
+- **User Authentication**: Secure JWT-based authentication and authorization
+- **User Management**: Admin-driven user registration with automated email notifications
+- **Project Management**: Create projects and assign team members with specific roles
+- **Sprint Management**: Organize work into sprints for agile project management
+- **Task Tracking**: Comprehensive task management with start dates, deadlines, and status tracking
+- **Real-time Notifications**: WebSocket-based notifications using Socket.io
+- **Email Notifications**: Automated email delivery for new account credentials
+- **File Upload**: Cloudinary integration for file and image management
+
+## 🛠️ Tech Stack
+
+- **Runtime**: Node.js 18.13
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT (jsonwebtoken) + bcryptjs
+- **Validation**: Joi
+- **Real-time**: Socket.io
+- **Email**: Nodemailer
+- **File Upload**: Multer + Cloudinary
+- **CORS**: Enabled for cross-origin requests
+
+## 📋 Prerequisites
+
+- Node.js 18.13 or higher
+- MongoDB instance (local or cloud)
+- Cloudinary account (for file uploads)
+- SMTP server credentials (for email notifications)
+
+## 🚀 Installation
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/taskscape-backend.git
+   cd express-taskscape
+   ```
 
-2. Install dependencies:
-    cd express-taskscape
-    npm install
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-3. Set up your environment variables
-4. Start the application:
-    - npm i nodemon
-    - npm run start:dev
-  
-## Usage
-1. Access taskcape app to create your organization and register admin account ( https://taskscape.vercel.app/ ).
+3. **Set up environment variables**:
+   Create a `.env` file in the root directory with the following variables:
+   ```env
+   PORT=3000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret_key
+   
+   # Email Configuration
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
+   EMAIL_USER=your_email@gmail.com
+   EMAIL_PASSWORD=your_email_password
+   
+   # Cloudinary Configuration
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
 
-2. Access admin dashboard to create organization members & scrum masters ( https://taskscape-admin.vercel.app/ ). 
+4. **Install nodemon** (for development):
+   ```bash
+   npm install -g nodemon
+   ```
 
-3. Create projects within the admin dashboard and assign one scrum master & organization members to these projects.
+5. **Start the development server**:
+   ```bash
+   npm run start:dev
+   ```
 
-4. Newly registered employees will receive an email with their username and password.
+6. **Build for production**:
+   ```bash
+   npm run build
+   npm start
+   ```
 
-5. Members and scrum masters can log in to the application and view their projects, sprints, and tasks with status.
+## 📖 Usage
 
-6. Scrum master can create sprints and assign tasks to project's members
+### Workflow Overview
 
-7. Member can see it's tasks and change status, and scrum master will recieve notifications about that
+1. **Organization Setup**: 
+   - Access the frontend app (https://taskscape.vercel.app/) to create your organization and register an admin account
 
-## API Documentation
-  https://documenter.getpostman.com/view/19178013/2s9YRB3XUs
+2. **Team Management**:
+   - Access the admin dashboard (https://taskscape-admin.vercel.app/) to create organization members and scrum masters
+   - Newly registered employees receive an email with their username and password
+
+3. **Project Creation**:
+   - Create projects within the admin dashboard
+   - Assign one scrum master and multiple organization members to each project
+
+4. **Sprint & Task Management**:
+   - Scrum masters can create sprints within projects
+   - Assign tasks to project members with deadlines and priorities
+   - Members can view their tasks and update status
+   - Scrum masters receive real-time notifications about task status changes
+
+5. **Collaboration**:
+   - Members and scrum masters can log in to view their projects, sprints, and tasks
+   - Real-time updates keep everyone synchronized
+
+## 📚 API Documentation
+
+Comprehensive API documentation is available at:
+https://documenter.getpostman.com/view/19178013/2s9YRB3XUs
+
+## 🏗️ Project Structure
+
+```
+express-taskscape/
+├── src/
+│   ├── controllers/     # Request handlers
+│   ├── models/          # Mongoose models
+│   ├── routes/          # API routes
+│   ├── middleware/      # Custom middleware
+│   ├── utils/           # Utility functions
+│   └── config/          # Configuration files
+├── dist/                # Compiled TypeScript output
+├── index.ts             # Application entry point
+└── package.json
+```
+
+## 🤝 Contributing
+
+This is an ITI graduation project. For contributions or suggestions, please contact the project team.
+
+## 📝 License
+
+ISC
+
+## 👥 Authors
+
+ITI Final Project Team
